@@ -3,51 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Sophie Kuhn - Portfolio</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             background-color: #001f3f;
-            background-image: url('path/to/your/background-image.jpg'); /* Replace with your actual background image path */
             color: white;
             font-family: Arial, sans-serif;
-            overflow: hidden;
+            min-height: 100vh;
         }
-        .portfolio {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+        .page {
+            display: none;
+            min-height: 100vh;
+            position: relative;
             padding: 20px;
         }
-        .portfolio-item {
-            margin: 10px;
+        .page.active {
+            display: block;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid white;
+        /* HOME PAGE */
+        #home {
+            background-image: url('examen%202025/P1122649.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 31, 63, 0.4);
+            pointer-events: none;
+        }
+        .home-title {
+            position: absolute;
+            font-size: 3.5em;
+            font-weight: bold;
+            z-index: 10;
+            left: 5%;
+            bottom: 10%;
+        }
+        .nav-links {
+            position: absolute;
+            z-index: 10;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .nav-links a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 1.8em;
+            margin: 30px 0;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+        /* WORKS PAGE */
+        #works {
+            position: relative;
+        }
+        .works-title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+            z-index: 5;
+        }
+        .works-gallery {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+        }
+        .work-item {
+            position: absolute;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        .work-item:hover {
+            transform: scale(1.05);
+        }
+        .work-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        /* INFO & CONTACT PAGES */
+        .page-title {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+        .page-content a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        .page-content a:hover {
+            text-decoration: underline;
+        }
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 3em;
+            cursor: pointer;
+            color: white;
+            z-index: 1001;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Portfolio</h1>
-    <div class="portfolio">
-        <!-- Images from examen 2025 folder -->
-        <div class="portfolio-item"><img src="examen2025/image1.jpg" alt="Image 1"></div>
-        <div class="portfolio-item"><img src="examen2025/image2.jpg" alt="Image 2"></div>
-        <div class="portfolio-item"><img src="examen2025/image3.jpg" alt="Image 3"></div>
-        <div class="portfolio-item"><img src="examen2025/image4.jpg" alt="Image 4"></div>
-        <div class="portfolio-item"><img src="examen2025/image5.jpg" alt="Image 5"></div>
-        <div class="portfolio-item"><img src="examen2025/image6.jpg" alt="Image 6"></div>
-        <div class="portfolio-item"><img src="examen2025/image7.jpg" alt="Image 7"></div>
-        <div class="portfolio-item"><img src="examen2025/image8.jpg" alt="Image 8"></div>
-        <div class="portfolio-item"><img src="examen2025/image9.jpg" alt="Image 9"></div>
-        <div class="portfolio-item"><img src="examen2025/image10.jpg" alt="Image 10"></div>
-        <div class="portfolio-item"><img src="examen2025/image11.jpg" alt="Image 11"></div>
-        <div class="portfolio-item"><img src="examen2025/image12.jpg" alt="Image 12"></div>
-        <div class="portfolio-item"><img src="examen2025/image13.jpg" alt="Image 13"></div>
-        <div class="portfolio-item"><img src="examen2025/image14.jpg" alt="Image 14"></div>
-        <div class="portfolio-item"><img src="examen2025/image15.jpg" alt="Image 15"></div>
-        <div class="portfolio-item"><img src="examen2025/image16.jpg" alt="Image 16"></div>
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <div class="home-title">SOPHIE KUHN</div>
+        <div class="nav-links">
+            <a onclick="showPage('works')">Works</a>
+            <a onclick="showPage('info')">Info</a>
+            <a onclick="showPage('contact')">Contact</a>
+        </div>
     </div>
+
+    <!-- WORKS PAGE -->
+    <div id="works" class="page">
+        <div class="works-title">examen 2025</div>
+        <div class="works-gallery" id="gallery"></div>
+    </div>
+
+    <!-- INFO PAGE -->
+    <div id="info" class="page">
+        <h1 class="page-title">About Me</h1>
+        <div class="page-content">
+            <p>Sophie Kuhn is an interdisciplinary artist working with the mediums painting, installation, performance and print. Based in Munich.</p>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <h1 class="page-title">Contact</h1>
+        <div class="page-content">
+            <p><strong>Email:</strong> <a href="mailto:kuhnsophie@gmx.de">kuhnsophie@gmx.de</a></p>
+            <p><strong>Instagram:</strong> <a href="https://instagram.com/s0popo" target="_blank">instagram.com/s0popo</a></p>
+        </div>
+    </div>
+
+    <!-- MODAL FOR ZOOMED IMAGES -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img id="modalImage" class="modal-content" src="">
+    </div>
+
+    <script>
+        const images = [
+            'examen%202025/Ayksp.jpg',
+            'examen%202025/D5KLc.jpg',
+            'examen%202025/G2DR7.jpg',
+            'examen%202025/P1122649.jpg',
+            'examen%202025/P1122674.jpg',
+            'examen%202025/YN2Wv.jpg',
+            'examen%202025/bDjW0.jpg',
+            'examen%202025/dpmkn.jpg',
+            'examen%202025/dvGX6.jpg',
+            'examen%202025/f17QU.jpg',
+            'examen%202025/gB0bh.jpg',
+            'examen%202025/hZXQB%202.jpg',
+            'examen%202025/hZXQB.jpg',
+            'examen%202025/iCspr.jpg',
+            'examen%202025/oIL1v.jpg',
+            'examen%202025/qTQx8.jpg'
+        ];
+
+        function getRandomPosition() {
+            const top = Math.random() * 70 + 10;
+            const left = Math.random() * 70 + 10;
+            const size = Math.random() * 100 + 120;
+            return { top, left, size };
+        }
+
+        function initializeGallery() {
+            const gallery = document.getElementById('gallery');
+            images.forEach(img => {
+                const pos = getRandomPosition();
+                const div = document.createElement('div');
+                div.className = 'work-item';
+                div.style.top = pos.top + '%';
+                div.style.left = pos.left + '%';
+                div.style.width = pos.size + 'px';
+                div.style.height = pos.size + 'px';
+                
+                const imgEl = document.createElement('img');
+                imgEl.src = img;
+                imgEl.onclick = (e) => {
+                    e.stopPropagation();
+                    zoomImage(imgEl.src);
+                };
+                
+                div.appendChild(imgEl);
+                gallery.appendChild(div);
+            });
+        }
+
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageName).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function zoomImage(src) {
+            document.getElementById('modalImage').src = src;
+            document.getElementById('imageModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active');
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', initializeGallery);
+    </script>
 </body>
 </html>
