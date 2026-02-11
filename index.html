@@ -5,102 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOPHIE KUHN</title>
     <style>
-        body { 
-            background-color: #001f3f;
+        body {
+            background-color: #001f3f; /* Dark blue background */
             color: white;
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            overflow: hidden;
+            font-family: Arial, sans-serif;
         }
-        header {
+        .container {
+            position: relative;
+        }
+        .background {
+            background-image: url('examen 2025/P1122649.jpg');
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
             position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 2em;
+            bottom: 20px;
+            left: 20px;
         }
         nav {
             position: absolute;
             top: 50%;
-            right: 10px;
+            right: 20px;
             transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
         }
         nav a {
+            display: block;
+            margin: 10px 0;
             color: white;
             text-decoration: none;
-            padding: 10px;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ffcc00;
-        }
-        .works {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            padding: 20px;
-        }
-        .work-image {
-            width: calc(33% - 10px);
-            margin: 5px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .work-image:hover {
-            transform: scale(1.05);
-        }
-        .info, .contact {
-            padding: 20px;
-        }
-        .contact {
-            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
-    <header>SOPHIE KUHN</header>
-    <nav>
-        <a href="#works">Works</a>
-        <a href="#info">Info</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <main>
-        <section id="home" style="background-image: url('examen 2025/P1122649.jpg'); height: 100vh; background-size: cover;">
-            <h1>Welcome to my portfolio</h1>
-        </section>
-        <section id="works" class="works">
-            <h2>My Works</h2>
-            <img class="work-image" src='examen 2025/image1.jpg' onclick='zoomImage(this)' />
-            <img class="work-image" src='examen 2025/image2.jpg' onclick='zoomImage(this)' />
-            ...
-            <img class="work-image" src='examen 2025/image16.jpg' onclick='zoomImage(this)' />
-        </section>
-        <section id="info" class="info">
-            <h2>About Me</h2>
-            <p>Sophie Kuhn is a interdisciplinary artist working with the mediums painting, installation, performance and print. based in munich.</p>
-        </section>
-        <section id="contact" class="contact">
-            <h2>Contact</h2>
-            <p>Email: kuhnsophie@gmx.de</p>
-            <p>Instagram: <a href='https://instagram.com/s0popo' style='color:white;'>instagram.com/s0popo</a></p>
-        </section>
-    </main>
-    <script>
-        function zoomImage(image) {
-            var modal = document.createElement('div');
-            modal.style.position = 'fixed';
-            modal.style.left = '0';
-            modal.style.top = '0';
-            modal.style.width = '100%';
-            modal.style.height = '100%';
-            modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
-            modal.appendChild(image.cloneNode());
-            modal.onclick = function() { document.body.removeChild(modal); };
-            document.body.appendChild(modal);
-        }
-    </script>
+    <div class="container">
+        <div class="background">
+            <h1>SOPHIE KUHN</h1>
+            <nav>
+                <a href="#works">Works</a>
+                <a href="#info">Info</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <div id="works">
+        <!-- Placeholder for works, replace with actual images -->
+        <h2>My Works</h2>
+        <div>
+            <!-- Images from examen 2025 folder should be placed here -->
+            <!-- Example: <img src="examen 2025/image1.jpg" onclick="zoomImage(this)"> -->
+        </div>
+    </div>
+
+    <div id="info">
+        <h2>Info</h2>
+        <p>Biography goes here...</p>
+    </div>
+
+    <div id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:kuhnsophie@gmx.de">kuhnsophie@gmx.de</a></p>
+        <p>Instagram: <a href="https://instagram.com/s0popo">instagram.com/s0popo</a></p>
+    </div>
+
 </body>
 </html>
