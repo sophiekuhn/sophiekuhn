@@ -3,113 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sophie Kuhn Portfolio</title>
+    <title>Portfolio Website</title>
     <style>
         body {
-            background-image: url('P1122649.jpg');
-            background-size: cover;
-            background-position: center;
+            background-color: #001f3f;
             color: white;
-            font-family: Arial, sans-serif;
+            font-size: 16px;
             margin: 0;
             padding: 0;
-            height: 100vh;
+            background-image: url('examen 2025/P1122649.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .heading {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            font-size: 2em;
+        }
+        .nav {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #001f3f;
-        }
-        h1 {
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4em;
-            text-align: center;
-        }
-        nav {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.5em;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
+            gap: 10px;
         }
         .works {
-            display: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
         }
-        .info {
-            display: none;
-        }
-        .contact {
-            display: none;
-        }
-        img {
+        .image {
+            margin: 5px;
             cursor: pointer;
-            transition: transform 0.3s;
-            width: 150px;
-            height: 150px;
-        }
-        img:hover {
-            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <h1>SOPHIE KUHN</h1>
-    <nav>
-        <a href="#home" onclick="showPage('home')">Home</a>
-        <a href="#works" onclick="showPage('works')">Works</a>
-        <a href="#info" onclick="showPage('info')">Info</a>
-        <a href="#contact" onclick="showPage('contact')">Contact</a>
-    </nav>
+    <div class="heading">SOPHIE KUHN</div>
+    <div class="nav">
+        <a href="#works">Works</a>
+        <a href="#info">Info</a>
+        <a href="#contact">Contact</a>
+    </div>
     <div class="works">
-        <h2>My Works</h2>
-        <div id="works-container"></div>
-    </div>
-    <div class="info">
-        <h2>About Me</h2>
-        <p>Sophie Kuhn is a interdisciplinary artist working with the mediums painting, installation, performance and print. based in munich.</p>
-    </div>
-    <div class="contact">
-        <h2>Contact</h2>
-        <p>Email: kuhnsophie@gmx.de</p>
-        <p>Instagram: <a href="https://instagram.com/s0popo" target="_blank">instagram.com/s0popo</a></p>
+        <!-- All 16 images will be dynamically added here -->
+        <img src="examen 2025/image1.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image2.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image3.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image4.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image5.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image6.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image7.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image8.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image9.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image10.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image11.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image12.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image13.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image14.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image15.jpg" class="image" onclick="zoomImage(this)" />
+        <img src="examen 2025/image16.jpg" class="image" onclick="zoomImage(this)" />
     </div>
     <script>
-        const images = ['Ayksp.jpg', 'D5KLc.jpg', 'G2DR7.jpg', 'P1122649.jpg', 'P1122674.jpg', 'YN2Wv.jpg', 'bDjW0.jpg', 'dpmkn.jpg', 'dvGX6.jpg', 'f17QU.jpg', 'gB0bh.jpg', 'hZXQB 2.jpg', 'hZXQB.jpg', 'iCspr.jpg', 'oIL1v.jpg', 'qTQx8.jpg'];
-        const worksContainer = document.getElementById('works-container');
-
-        images.sort(() => 0.5 - Math.random());
-
-        images.forEach(image => {
-            const imgElement = document.createElement('img');
-            imgElement.src = image;
-            imgElement.onclick = () => window.open(image, '_blank');
-            worksContainer.appendChild(imgElement);
-        });
-
-        function showPage(page) {
-            document.querySelector('.works').style.display = 'none';
-            document.querySelector('.info').style.display = 'none';
-            document.querySelector('.contact').style.display = 'none';
-
-            if (page === 'works') {
-                document.querySelector('.works').style.display = 'block';
-            } else if (page === 'info') {
-                document.querySelector('.info').style.display = 'block';
-            } else if (page === 'contact') {
-                document.querySelector('.contact').style.display = 'block';
-            }
+        function zoomImage(img) {
+            // Placeholder function for zoom functionality
+            alert('Zoom functionality not implemented.');
         }
-
-        // Show home page by default
-        showPage('home');
     </script>
 </body>
 </html>
